@@ -5,21 +5,9 @@ import "./CryptoList.css";
 import CryptoDetailPage from "../../Pages/CryptoDetailPage/CryptoDetailPage";
 
 const CryptoList = ({ cryptoData, setCryptoData }) => {
-  const [currentPage, setCurrentPage] = useState(1);
-
-  useEffect(() => {
-    async function getCryptoData() {
-      const coinData = await cryptoApi.getAll();
-      console.log(coinData);
-      setCryptoData(coinData);
-    }
-
-    getCryptoData();
-  }, []);
-
   const cryptos = cryptoData.map((crypto, idx) => {
     return (
-      <tr className="table-data">
+      <tr className="table-data" key={idx}>
         <td>{crypto.rank}</td>
         <Link className="table-links" to={`/crypto/${idx}`}>
           <td>
@@ -38,7 +26,6 @@ const CryptoList = ({ cryptoData, setCryptoData }) => {
       </tr>
     );
   });
-  console.log(cryptos);
   <CryptoDetailPage cryptoData={cryptoData} setCryptoData={setCryptoData} />;
   return (
     <>
