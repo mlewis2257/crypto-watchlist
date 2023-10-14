@@ -1,0 +1,31 @@
+.cryptolist-container {
+  margin-top: 20px;
+  border: 1px solid #00ffff;
+  text-align: center;
+}
+.table-header {
+  border: 1px solid #00ffff;
+}
+.table-header th {
+  padding: 20px;
+  border: 1px solid #00ffff;
+}
+tr {
+  text-align: center;
+  padding: 100px;
+  border-bottom-width: 1px;
+  border-bottom-color: #00ffff;
+  border-bottom-style: solid;
+}
+.table-data td {
+  padding: 10px 0;
+}
+.table-links {
+  text-decoration: none;
+  color: aliceblue;
+}
+.coin-image {
+  width: 25px;
+  height: 25px;
+  margin-right: 10px;
+}

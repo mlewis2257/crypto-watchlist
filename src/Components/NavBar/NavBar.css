@@ -1,0 +1,22 @@
+#navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid #00ffff;
+  border-bottom: 1px solid #00ffff;
+}
+.navbar-links {
+  display: flex;
+  justify-content: center;
+}
+
+.navbar-links a {
+  color: aliceblue;
+  text-decoration: none;
+  padding: 10px 20px;
+}
+.navbar-links a:hover {
+  color: #ff0000;
+  transform: scale(1.1);
+  transition: 0.4s all ease-in-out;
+}
