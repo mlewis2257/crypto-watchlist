@@ -5,3 +5,6 @@
   border-radius: 5px;
   margin-bottom: 20px;
 }
+#tsparticles {
+  z-index: -1;
+}

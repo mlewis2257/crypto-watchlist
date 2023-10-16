@@ -7,29 +7,31 @@ const SignUpForm = ({ setUser }) => {
     email: "",
     password: "",
     confirm: "",
-    error: "",
   });
+  const [error, setError] = useState("");
+  // function handleChange(evt) {
+  //   setSignUp((prevSignUp) => ({
+  //     ...prevSignUp,
+  //     [evt.target.name]: evt.target.value,
+  //     error: "",
+  //   }));
+  // }
   function handleChange(evt) {
-    setSignUp((prevSignUp) => ({
-      ...prevSignUp,
-      [evt.target.name]: evt.target.value,
-      error: "",
-    }));
+    setSignUp({ ...signup, [evt.target.name]: evt.target.value });
   }
   async function handleSubmit(evt) {
     evt.preventDefault();
     try {
-      const formData = { ...signup };
-      delete formData.error;
+      const formData = signup;
       delete formData.confirm;
 
       const user = await signUp(formData);
       setUser(user);
     } catch (error) {
-      setSignUp({ ...signup, error: "Invalid SignUp - try again" });
+      setError("Invalid SignUp - try again");
     }
   }
-  const disable = setSignUp.password !== setSignUp.confirm;
+  const disable = signup.password !== signup.confirm;
   return (
     <div>
       <div className="form-container">
@@ -71,7 +73,7 @@ const SignUpForm = ({ setUser }) => {
           </button>
         </form>
       </div>
-      <p className="error-message">&nbsp;{signup.error}</p>
+      <p className="error-message">&nbsp;{error}</p>
     </div>
   );
 };

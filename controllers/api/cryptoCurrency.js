@@ -1,5 +1,4 @@
 const { response } = require("express");
-const CryptoCurrency = require("../../models/cryptoCurrency");
 const CMC_API_KEY = process.env.REACT_APP_CMC_API_KEY;
 const axios = require("axios");
 
@@ -16,7 +15,7 @@ async function index(req, res) {
       method: "GET",
       headers: {
         accept: "application/json",
-        "X-API-KEY": "rlOwcaJ1kA98uJN4X+eL/+TRcGE83VEWmgp4v8NF2m8=",
+        "X-API-KEY": CMC_API_KEY,
       },
     });
     console.log(response.data);

@@ -4,7 +4,6 @@ import * as cryptoApi from "../../Utilities/coins-api";
 import AuthPage from "../AuthPage/AuthPage";
 import CryptoDetailPage from "../CryptoDetailPage/CryptoDetailPage";
 import CryptoNewsPage from "../CryptoNewsPage/CryptoNewsPage";
-import WatchListPage from "../WatchListPage/WatchListPage";
 import HomePage from "../HomePage/HomePage";
 import { Routes, Route } from "react-router-dom";
 import "./App.css";
@@ -19,7 +18,7 @@ function App() {
       setCryptoData(coinData);
     }
     getCryptoData();
-  }, []);
+  }, [user]);
 
   return (
     <main className="App">
@@ -28,12 +27,15 @@ function App() {
           <Route
             path="/"
             element={
-              <HomePage cryptoData={cryptoData} setCryptoData={setCryptoData} />
+              <HomePage
+                cryptoData={cryptoData}
+                setCryptoData={setCryptoData}
+                user={user}
+                setUser={setUser}
+              />
             }
-            user={user}
           />
-          <Route path="/watchlist" element={<WatchListPage />} user={user} />
-          <Route path="/news" element={<CryptoNewsPage />} user={user} />
+          <Route path="/news" element={<CryptoNewsPage />} />
           <Route
             path="/crypto/:id"
             element={
@@ -42,7 +44,6 @@ function App() {
                 setCryptoData={setCryptoData}
               />
             }
-            user={user}
           />
         </Routes>
       ) : (

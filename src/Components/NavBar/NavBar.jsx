@@ -1,8 +1,15 @@
 import React from "react";
+import * as userService from "../../Utilities/users-service";
 import { Link } from "react-router-dom";
 import "./NavBar.css";
 
-const NavBar = () => {
+const NavBar = ({ user, setUser }) => {
+  function handleLogOut() {
+    // Delegate to the users-service
+    userService.logOut();
+    // Update state will also cause a re-render
+    setUser(null);
+  }
   return (
     <nav id="navbar">
       <div className="navbar-links">
@@ -24,8 +31,8 @@ const NavBar = () => {
         </Link>
       </div>
       <div className="navbar-links">
-        <Link>
-          <h3>Login</h3>
+        <Link to="" onClick={handleLogOut}>
+          Log Out
         </Link>
       </div>
     </nav>

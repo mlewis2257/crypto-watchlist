@@ -132,7 +132,6 @@ const CryptoDetailPage = ({ cryptoData, setCryptoData }) => {
         <div>
           <Line data={chartData} options={options} />
         </div>
-        <div>News</div>
       </div>
     </>
   );

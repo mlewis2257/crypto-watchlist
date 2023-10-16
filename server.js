@@ -10,14 +10,19 @@ const app = express();
 
 app.use(logger("dev"));
 app.use(express.json());
-app.use("/api/users", require("./routes/api/users"));
-app.use("/api/cryptoCurrency", require("./routes/api/cryptoCurrency"));
-app.use("/api/news", require("./routes/api/news"));
+const ensureLoggedIn = require("./config/ensureLoggedIn");
 
 app.use(favicon(path.join(__dirname, "build", "favicon.ico")));
 app.use(express.static(path.join(__dirname, "build")));
 
+app.use(require("./config/checkToken"));
+
 const port = process.env.PORT || 3001;
+
+app.use("/api/users", require("./routes/api/users"));
+
+app.use("/api/cryptoCurrency", require("./routes/api/cryptoCurrency"));
+app.use("/api/news", require("./routes/api/news"));
 
 app.listen(port, function () {
   console.log(`Express running on port: ${port}`);

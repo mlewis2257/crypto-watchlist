@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import * as usersService from "../../Utilities/users-service";
 
 const LoginForm = ({ setUser }) => {
   const [credentials, setCredentials] = useState({
@@ -13,7 +14,11 @@ const LoginForm = ({ setUser }) => {
   async function handleSubmit(evt) {
     evt.preventDefault();
     try {
-    } catch (error) {}
+      const user = await usersService.login(credentials);
+      setUser(user);
+    } catch (error) {
+      setError("Log In Failed - Try Again");
+    }
   }
 
   return (
@@ -23,13 +28,15 @@ const LoginForm = ({ setUser }) => {
           <label htmlFor="">Email</label>
           <input
             type="text"
+            name="email"
             value={credentials.email}
             onChange={handleChange}
             required
           />
           <label htmlFor="">Password</label>
           <input
-            type="text"
+            type="password"
+            name="password"
             value={credentials.password}
             onChange={handleChange}
             required

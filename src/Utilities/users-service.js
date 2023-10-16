@@ -5,6 +5,17 @@ export async function signUp(userData) {
   localStorage.setItem("token", token);
   return getUser();
 }
+export async function login(credentials) {
+  // Delegate the AJAX request to the users-api.js
+  // module.
+  const token = await usersAPI.login(credentials);
+  localStorage.setItem("token", token);
+  return getUser();
+}
+
+export function logOut() {
+  localStorage.removeItem("token");
+}
 
 export function getToken() {
   const token = localStorage.getItem("token");
@@ -21,5 +32,5 @@ export function getToken() {
 export function getUser() {
   const token = getToken();
 
-  return token ? JSON.parse(atob(token.split(".")[1])) : null;
+  return token ? JSON.parse(atob(token.split(".")[1])).user : null;
 }
