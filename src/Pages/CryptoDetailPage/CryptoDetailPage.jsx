@@ -32,6 +32,15 @@ const CryptoDetailPage = ({ cryptoData, setCryptoData }) => {
   const cryptoId = parseInt(id);
   const crypto = cryptoData[cryptoId];
   const idx = crypto.id;
+
+  function numFormat(num) {
+    const decimalPlaces = num > 0 ? 2 : 5;
+    return parseFloat(num.toFixed(decimalPlaces)).toLocaleString();
+  }
+  function getColorClass(value) {
+    return value >= 0 ? "positive" : "negative";
+  }
+
   const monthNames = [
     "January",
     "February",
@@ -109,22 +118,36 @@ const CryptoDetailPage = ({ cryptoData, setCryptoData }) => {
               <img src={`${crypto.icon}`} alt={`${crypto.name} icon`} />
               {`${crypto.name} ${crypto.symbol}`}
             </h1>
-            <h2>{`$${crypto.price}`}</h2>
+            <h2>{`$${numFormat(crypto.price)}`}</h2>
+            <div>
+              <h3>1h Price Change:</h3>
+              <h4 className={getColorClass(crypto.priceChange1h)}>
+                {`${crypto.priceChange1h}%`}
+              </h4>
+              <h3>1d Price Change:</h3>
+              <h4 className={getColorClass(crypto.priceChange1d)}>
+                {`${crypto.priceChange1d}%`}
+              </h4>
+              <h3>1w Price Change:</h3>
+              <h4 className={getColorClass(crypto.priceChange1w)}>
+                {`${crypto.priceChange1w}%`}
+              </h4>
+            </div>
             <div>
               <h3>Rank #</h3>
               <h4>{crypto.rank}</h4>
             </div>
             <div>
               <h3>Market Cap</h3>
-              <h4>{`$${crypto.marketCap}`}</h4>
+              <h5>{`$${numFormat(crypto.marketCap)}`}</h5>
             </div>
             <div>
               <h3>Available Supply</h3>
-              <h5>{`${crypto.availableSupply}`}</h5>
+              <h5>{`${numFormat(crypto.availableSupply)}`}</h5>
             </div>
             <div>
               <h3>Total Supply</h3>
-              <h5>{`${crypto.totalSupply}`}</h5>
+              <h5>{`${numFormat(crypto.totalSupply)}`}</h5>
             </div>
           </div>
           <div className="news-div"></div>

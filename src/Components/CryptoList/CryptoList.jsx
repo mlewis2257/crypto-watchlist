@@ -4,6 +4,13 @@ import "./CryptoList.css";
 import CryptoDetailPage from "../../Pages/CryptoDetailPage/CryptoDetailPage";
 
 const CryptoList = ({ cryptoData, setCryptoData }) => {
+  function numFormat(num) {
+    const decimalPlaces = num > 0 ? 2 : 5;
+    return parseFloat(num.toFixed(decimalPlaces)).toLocaleString();
+  }
+  function getColorClass(value) {
+    return value >= 0 ? "positive" : "negative";
+  }
   const cryptos = cryptoData.map((crypto, idx) => {
     return (
       <tr className="table-data" key={idx}>
@@ -14,18 +21,28 @@ const CryptoList = ({ cryptoData, setCryptoData }) => {
             <span style={{ fontStyle: "bold" }}>{crypto.name}</span>
           </td>
         </Link>
-        <td>{`$${crypto.price}`}</td>
-        <td>{`${crypto.priceChange1h}%`}</td>
-        <td>{`${crypto.priceChange1d}%`}</td>
-        <td>{`${crypto.priceChange1w}%`}</td>
-        <td>{`$${crypto.marketCap}`}</td>
-        <td>{`$${crypto.volume}`}</td>
-        <td>{`${crypto.availableSupply} ${crypto.symbol}`}</td>
-        <td>{`${crypto.totalSupply} ${crypto.symbol}`}</td>
+        <td>{`$${numFormat(crypto.price)}`}</td>
+        <td
+          className={getColorClass(crypto.priceChange1h)}
+        >{`${crypto.priceChange1h}%`}</td>
+        <td
+          className={getColorClass(crypto.priceChange1d)}
+        >{`${crypto.priceChange1d}%`}</td>
+        <td
+          className={getColorClass(crypto.priceChange1w)}
+        >{`${crypto.priceChange1w}%`}</td>
+        <td>{`$${numFormat(crypto.marketCap)}`}</td>
+        <td>{`$${numFormat(crypto.volume)}`}</td>
+        <td>{`${numFormat(crypto.availableSupply)} ${crypto.symbol}`}</td>
+        <td>{`${numFormat(crypto.totalSupply)} ${crypto.symbol}`}</td>
       </tr>
     );
   });
-  <CryptoDetailPage cryptoData={cryptoData} setCryptoData={setCryptoData} />;
+  <CryptoDetailPage
+    cryptoData={cryptoData}
+    setCryptoData={setCryptoData}
+    numFormat={numFormat}
+  />;
   return (
     <>
       <div className="crypotlist-container">

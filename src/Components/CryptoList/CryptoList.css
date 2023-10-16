@@ -18,7 +18,7 @@ tr {
   border-bottom-style: solid;
 }
 .table-data td {
-  padding: 10px 0;
+  padding: 10px;
 }
 .table-links {
   text-decoration: none;
@@ -28,4 +28,10 @@ tr {
   width: 25px;
   height: 25px;
   margin-right: 10px;
+}
+.positive {
+  color: #80ff00;
+}
+.negative {
+  color: #ff0000;
 }
