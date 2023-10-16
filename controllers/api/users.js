@@ -16,6 +16,6 @@ async function create(req, res) {
   }
 }
 
-function createJWT() {
+function createJWT(user) {
   return jwt.sign({ user }, process.env.SECRET, { expiresIn: "24h" });
 }

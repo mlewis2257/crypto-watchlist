@@ -12,6 +12,7 @@ app.use(logger("dev"));
 app.use(express.json());
 app.use("/api/users", require("./routes/api/users"));
 app.use("/api/cryptoCurrency", require("./routes/api/cryptoCurrency"));
+app.use("/api/news", require("./routes/api/news"));
 
 app.use(favicon(path.join(__dirname, "build", "favicon.ico")));
 app.use(express.static(path.join(__dirname, "build")));

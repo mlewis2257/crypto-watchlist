@@ -4,6 +4,7 @@
   align-items: center;
   border-top: 1px solid #00ffff;
   border-bottom: 1px solid #00ffff;
+  margin-bottom: 10px;
 }
 .navbar-links {
   display: flex;
@@ -19,4 +20,8 @@
   color: #ff0000;
   transform: scale(1.1);
   transition: 0.4s all ease-in-out;
+}
+.navbar-links .logo-img {
+  width: 80px;
+  height: 80px;
 }

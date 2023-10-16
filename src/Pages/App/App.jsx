@@ -23,31 +23,31 @@ function App() {
 
   return (
     <main className="App">
-      {/* {user ? ( */}
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <HomePage cryptoData={cryptoData} setCryptoData={setCryptoData} />
-          }
-          user={user}
-        />
-        <Route path="/watchlist" element={<WatchListPage />} user={user} />
-        <Route path="/news" element={<CryptoNewsPage />} user={user} />
-        <Route
-          path="/crypto/:id"
-          element={
-            <CryptoDetailPage
-              cryptoData={cryptoData}
-              setCryptoData={setCryptoData}
-            />
-          }
-          user={user}
-        />
-      </Routes>
-      {/* ) : ( */}
-      {/* <AuthPage setUser={setUser} /> */}
-      {/* )} */}
+      {user ? (
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <HomePage cryptoData={cryptoData} setCryptoData={setCryptoData} />
+            }
+            user={user}
+          />
+          <Route path="/watchlist" element={<WatchListPage />} user={user} />
+          <Route path="/news" element={<CryptoNewsPage />} user={user} />
+          <Route
+            path="/crypto/:id"
+            element={
+              <CryptoDetailPage
+                cryptoData={cryptoData}
+                setCryptoData={setCryptoData}
+              />
+            }
+            user={user}
+          />
+        </Routes>
+      ) : (
+        <AuthPage setUser={setUser} />
+      )}
     </main>
   );
 }

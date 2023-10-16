@@ -6,22 +6,25 @@ const NavBar = () => {
   return (
     <nav id="navbar">
       <div className="navbar-links">
-        <Link>
-          <h3>Home</h3>
+        <Link to="/">
+          <img
+            className="logo-img"
+            src={"https://i.imgur.com/tPX2MEY.png"}
+            alt=""
+          />
         </Link>
-        <Link>
+        <Link to="/">
           <h3>Crypto Currencies</h3>
         </Link>
         <Link>
           <h3>Watch List</h3>
         </Link>
-        <Link>
+        <Link to="/news">
           <h3>News</h3>
         </Link>
       </div>
       <div className="navbar-links">
         <Link>
-          <img src="" alt="" />
           <h3>Login</h3>
         </Link>
       </div>

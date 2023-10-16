@@ -1,0 +1,8 @@
+.article-img {
+  width: 400px;
+  height: 300px;
+}
+.article-div {
+  border-bottom: 1px solid #ff0000;
+  padding: 20px 0;
+}
