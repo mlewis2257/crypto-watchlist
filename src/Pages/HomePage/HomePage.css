@@ -1,0 +1,70 @@
+.dashboard-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 20px;
+}
+
+.top-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.middle-charts {
+  display: grid;
+  grid-template-columns: 2fr 1fr; /* Matches the layout in image 2 */
+  gap: 20px;
+  min-height: 400px;
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 24px;
+  padding: 24px;
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-areas:
+    "hero hero hero side1"
+    "main main main side2"
+    "footer footer footer footer";
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  padding: 20px;
+}
+
+/* Glassmorphism Base */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 24px;
+  padding: 24px;
+  transition: transform 0.3s ease;
+}
+
+.glass-panel:hover {
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Layout Assignments */
+.hero-section {
+  grid-area: hero;
+  display: flex;
+  gap: 15px;
+}
+.main-chart-area {
+  grid-area: main;
+  min-height: 350px;
+}
+.gauge-area {
+  grid-area: side2;
+}
+.trending-area {
+  grid-area: footer;
+}

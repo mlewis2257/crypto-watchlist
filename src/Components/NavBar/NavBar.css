@@ -1,27 +1,103 @@
-#navbar {
+:root {
+  --sidebar-width: 260px;
+  --glass: rgba(255, 255, 255, 0.03);
+  --border: rgba(255, 255, 255, 0.1);
+  --accent: #9945ff;
+}
+
+.appShell {
+  display: grid;
+  grid-template-columns: var(--sidebar-width) 1fr;
+  height: 100vh;
+  width: 100vw;
+  color: white;
+  /* Use your background image here */
+  background: url("/src/assets/background-image.png") no-repeat center center
+    fixed;
+  background-size: cover;
+  overflow: hidden;
+}
+
+/* Sidebar Styling */
+.sidebar {
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(20px);
+  border-right: 1px solid var(--border);
+  padding: 30px 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  margin-bottom: 40px;
+  position: relative;
+  overflow: hidden;
+}
+.logo span {
+  color: var(--accent);
+}
+
+.nav-menu {
+  flex-grow: 1;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 14px 18px;
+  border-radius: 12px;
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.6);
+  transition: 0.2s ease;
+  margin-bottom: 8px;
+}
+
+.nav-item:hover,
+.nav-item.active {
+  background: var(--glass);
+  color: white;
+  box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.05);
+}
+
+/* Main Content Area */
+.appMain {
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+.topBar {
+  padding: 20px 40px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-top: 1px solid #00ffff;
-  border-bottom: 1px solid #00ffff;
-  margin-bottom: 10px;
-}
-.navbar-links {
-  display: flex;
-  justify-content: center;
+  background: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
 }
 
-.navbar-links a {
-  color: aliceblue;
-  text-decoration: none;
-  padding: 10px 20px;
+.searchWrap {
+  background: var(--glass);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 8px 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 300px;
 }
-.navbar-links a:hover {
-  color: #ff0000;
-  transform: scale(1.1);
-  transition: 0.4s all ease-in-out;
+
+.searchWrap input {
+  background: none;
+  border: none;
+  color: white;
+  outline: none;
+  width: 100%;
 }
-.navbar-links .logo-img {
-  width: 80px;
-  height: 80px;
+
+.pageContent {
+  padding: 30px 40px;
 }

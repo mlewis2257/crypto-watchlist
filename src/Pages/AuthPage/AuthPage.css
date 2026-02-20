@@ -1,10 +1,27 @@
 .logo {
   width: 300px;
   height: 300px;
-  border: 1px solid #00ffff;
+  border: 1px solid #00ff22;
   border-radius: 5px;
   margin-bottom: 20px;
 }
-#tsparticles {
+/* #tsparticles {
   z-index: -1;
+} */
+
+.auth-bg {
+  min-height: 100vh;
+  background-image: url(../../assets/meme-coins.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.auth-overlay {
+  min-height: 100vh;
+  background: rgba(0, 0, 0, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
 }

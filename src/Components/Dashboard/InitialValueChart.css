@@ -1,0 +1,30 @@
+.gauge-wrapper {
+  position: relative;
+  width: 100%;
+  height: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gauge-center-text {
+  position: absolute;
+  top: 55%; /* Adjusted for the 270-degree rotation */
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.gauge-percentage {
+  display: block;
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #fff;
+}
+
+.gauge-label {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.5);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}

@@ -1,37 +1,118 @@
-.cryptolist-container {
-  margin-top: 20px;
-  border: 1px solid #00ffff;
-  text-align: center;
+.tableCard {
+  background: rgba(18, 25, 45, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 18px;
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.35);
+  overflow: hidden;
 }
-.table-header {
-  border: 1px solid #00ffff;
+
+.tableTop {
+  padding: 16px 16px 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
-.table-header th {
-  padding: 20px;
-  border: 1px solid #00ffff;
+
+.tableTitle {
+  color: rgba(255, 255, 255, 0.92);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  font-size: 16px;
 }
-tr {
-  text-align: center;
-  padding: 100px;
-  border-bottom-width: 1px;
-  border-bottom-color: #00ffff;
-  border-bottom-style: solid;
+
+.tableSub {
+  color: rgba(255, 255, 255, 0.62);
+  font-size: 12px;
+  margin-top: 4px;
 }
-.table-data td {
-  padding: 10px;
+
+.tableWrap {
+  overflow: auto;
 }
-.table-links {
+
+.table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.table thead th {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  background: rgba(12, 18, 34, 0.92);
+  color: rgba(255, 255, 255, 0.62);
+  font-weight: 700;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 14px 14px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  text-align: left;
+}
+
+.table tbody td {
+  padding: 14px 14px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  color: rgba(255, 255, 255, 0.92);
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.row:hover {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.muted {
+  color: rgba(255, 255, 255, 0.62);
+}
+
+.coinLink {
+  display: flex;
+  align-items: center;
+  gap: 12px;
   text-decoration: none;
-  color: aliceblue;
+  color: rgba(255, 255, 255, 0.92);
 }
-.coin-image {
-  width: 25px;
-  height: 25px;
-  margin-right: 10px;
+
+.coinImg {
+  width: 28px;
+  height: 28px;
+  border-radius: 10px;
 }
-.positive {
-  color: #80ff00;
+
+.coinMeta {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
 }
-.negative {
-  color: #ff0000;
+
+.coinName {
+  font-weight: 700;
+}
+
+.coinSym {
+  color: rgba(255, 255, 255, 0.62);
+  font-size: 12px;
+  margin-top: 3px;
+}
+
+/* Change badges */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+  font-size: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.badgeUp {
+  background: rgba(35, 194, 129, 0.14);
+  color: rgba(150, 255, 210, 0.95);
+}
+
+.badgeDown {
+  background: rgba(255, 84, 112, 0.14);
+  color: rgba(255, 160, 175, 0.95);
 }
