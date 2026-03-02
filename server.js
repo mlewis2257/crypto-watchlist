@@ -1,4 +1,10 @@
 const express = require("express");
+const jwt = require("jsonwebtoken");
+const speakeasy = require("speakeasy");
+const qrcode = require("qrcode");
+const rateLimit = require("express-rate-limit");
+const cookieParser = require("cookie-parser");
+
 const path = require("path");
 const favicon = require("serve-favicon");
 const logger = require("morgan");
@@ -21,7 +27,7 @@ app.use(require("./config/checkToken"));
 
 const port = process.env.PORT || 3001;
 
-app.use("/api/users", require("./routes/api/users"));
+app.use("/api/users", require("./routes/api/auth"));
 
 app.use("/api/cryptoCurrency", require("./routes/api/cryptoCurrency"));
 app.use("/api/news", require("./routes/api/news"));

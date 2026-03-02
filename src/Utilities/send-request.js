@@ -19,6 +19,15 @@ export default async function sendRequest(url, method = "GET", payload = null) {
   }
   const res = await fetch(url, options);
   // if res.ok is false then something went wrong
-  if (res.ok) return res.json();
-  throw new Error("Bad Request");
+  if (res.ok) {
+    const contentType = res.headers.get("content-type");
+
+    // handle different response types
+    if (contentType && contentType.includes("application/json")) {
+      return res.json();
+    } else {
+      return res.text();
+    }
+  }
+  throw new Error(`Request failed: ${res.status} ${res.statusText}`);
 }

@@ -100,4 +100,7 @@
 
 .pageContent {
   padding: 30px 40px;
+  display: flex; /* Added */
+  flex-direction: column; /* Added */
+  min-height: 0;
 }

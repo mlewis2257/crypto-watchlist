@@ -1,70 +1,79 @@
-.dashboard-grid {
+.dashboard-container {
   display: flex;
   flex-direction: column;
-  gap: 24px;
-  padding: 20px;
-}
-
-.top-stats {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 20px;
-}
-
-.middle-charts {
-  display: grid;
-  grid-template-columns: 2fr 1fr; /* Matches the layout in image 2 */
-  gap: 20px;
-  min-height: 400px;
-}
-
-.glass {
-  background: rgba(255, 255, 255, 0.03);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 24px;
-  padding: 24px;
+  gap: 30px;
+  width: 100%;
+  max-width: 1400px; /* Prevents it from getting too wide on huge monitors */
+  margin: 0 auto;
 }
 
 .dashboard-grid {
   display: grid;
+  grid-template-columns: 1fr 1fr 1fr 300px;
   grid-template-areas:
-    "hero hero hero side1"
-    "main main main side2"
-    "footer footer footer footer";
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
-  padding: 20px;
+    "hero hero hero side"
+    "main main main side";
+  gap: 24px;
+  width: 100%;
+  padding: 0;
 }
 
-/* Glassmorphism Base */
+/* Stat Cards Row */
+.hero-area {
+  grid-area: hero; /* Maps to the main area in the grid */
+  min-height: 450px;
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+  min-height: auto;
+  margin-bottom: 10px;
+}
+
+/* Chart Area */
+.main-chart-area {
+  grid-area: main; /* Maps to the main area in the grid */
+  min-height: 450px;
+  display: flex;
+  flex-direction: column;
+}
+
+.gauge-area {
+  grid-area: side; /* Maps to the side area in the grid */
+  display: flex;
+  flex-direction: column;
+  height: 400px;
+}
+
+.canvas-wrapper {
+  flex: 1;
+  width: 100%;
+  position: relative; /* Essential for Chart.js reactivity */
+}
+
+/* Glassmorphism Panel */
 .glass-panel {
   background: rgba(255, 255, 255, 0.03);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 24px;
-  padding: 24px;
-  transition: transform 0.3s ease;
+  padding: 30px;
 }
 
-.glass-panel:hover {
-  border-color: rgba(255, 255, 255, 0.2);
+.chart-title {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #fff;
+  margin-bottom: 20px;
+  opacity: 0.8;
 }
 
-/* Layout Assignments */
-.hero-section {
-  grid-area: hero;
+/* Loading State */
+.loading {
+  height: 100vh;
   display: flex;
-  gap: 15px;
-}
-.main-chart-area {
-  grid-area: main;
-  min-height: 350px;
-}
-.gauge-area {
-  grid-area: side2;
-}
-.trending-area {
-  grid-area: footer;
+  justify-content: center;
+  align-items: center;
+  color: #00e5ff;
+  font-family: monospace;
 }

@@ -108,11 +108,9 @@
 }
 
 .badgeUp {
-  background: rgba(35, 194, 129, 0.14);
-  color: rgba(150, 255, 210, 0.95);
+  color: rgba(17, 236, 141, 0.95);
 }
 
 .badgeDown {
-  background: rgba(255, 84, 112, 0.14);
-  color: rgba(255, 160, 175, 0.95);
+  color: rgba(224, 9, 41, 0.95);
 }

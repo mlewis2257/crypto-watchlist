@@ -1,0 +1,28 @@
+/* Change badges */
+.coin-stats-container {
+  display: flex;
+  flex-direction: column;
+  height: 150px;
+  width: 300px;
+  border: 1px solid #cfc9c990;
+}
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+  font-size: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.badgeUp {
+  background: rgba(35, 194, 129, 0.14);
+  color: rgba(150, 255, 210, 0.95);
+}
+
+.badgeDown {
+  background: rgba(255, 84, 112, 0.14);
+  color: rgba(255, 160, 175, 0.95);
+}
